@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;500;700&display=swap');
+
+:root {
+    --pink: #ff477e;
+    --pink-light: #ffe4ec;
+    --pink-dark: #c71585;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ff9a9e, #fecfef);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Floating Hearts */
+.floating-hearts {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.fheart {
+    position: absolute;
+    font-size: 20px;
+    color: var(--pink);
+    opacity: 0.3;
+    animation: floatUp 8s linear infinite;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(110vh) rotate(0deg); opacity: 0; }
+    50% { opacity: 0.6; }
+    100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+}
+
+/* Screen Container */
+.screen {
+    display: none;
+    background: white;
+    padding: 35px 25px;
+    border-radius: 25px;
+    width: 100%;
+    max-width: 380px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(255, 71, 126, 0.3);
+    animation: popIn 0.5s ease;
+    z-index: 1;
+}
+
+.screen.active { display: block; }
+
+@keyframes popIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Lock Icon */
+.lock-icon {
+    font-size: 50px;
+    margin-bottom: 15px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+h2 {
+    font-family: 'Pacifico', cursive;
+    color: var(--pink);
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+.hint { color: #888; font-size: 14px; margin-bottom: 20px; }
+
+/* Input */
+input[type="password"] {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #ffcce0;
+    border-radius: 15px;
+    font-size: 16px;
+    text-align: center;
+    outline: none;
+    transition: 0.3s;
+}
+
+input[type="password"]:focus {
+    border-color: var(--pink);
+    box-shadow: 0 0 15px rgba(255, 71, 126, 0.2);
+}
+
+/* Buttons */
+button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 15px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: 0.3s;
+    background: linear-gradient(135deg, var(--pink), var(--pink-dark));
+    color: white;
+}
+
+button:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(255, 71, 126, 0.4); }
+button:active { transform: scale(0.95); }
+
+.btn-gray { background: #ccc; color: #555; }
+
+/* Error Message */
+#errorMsg {
+    color: red;
+    font-size: 13px;
+    margin-top: 10px;
+    display: none;
+}
+
+/* Quiz Stats */
+.stats {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #888;
+    margin: 15px 0 5px;
+}
+
+.progress-line {
+    width: 100%;
+    height: 6px;
+    background: #eee;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--pink);
+    transition: 0.5s;
+    width: 10%;
+}
+
+#questionText {
+    font-size: 17px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+#optionsContainer button {
+    background: white;
+    border: 2px solid #ffcce0;
+    color: #555;
+    text-align: left;
+    font-weight: 500;
+}
+
+#optionsContainer button:hover {
+    background: var(--pink-light);
+    color: var(--pink);
+    border-color: var(--pink);
+}
+
+/* Score Text */
+.score-text { font-size: 20px; color: var(--pink); margin: 15px 0; }
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    padding: 20px;
+}
+
+.modal-box {
+    background: white;
+    padding: 35px;
+    border-radius: 25px;
+    width: 100%;
+    max-width: 380px;
+    text-align: center;
+    animation: popIn 0.5s ease;
+}
+
+.ring { font-size: 60px; margin-bottom: 10px; animation: spin 2s infinite; }
+@keyframes spin { 0%,100%{transform:rotate(0deg);} 50%{transform:rotate(15deg);} }
+
+.modal-box h3 {
+    font-family: 'Pacifico', cursive;
+    color: var(--pink);
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.letter {
+    background: #fff5f8;
+    padding: 20px;
+    border-radius: 15px;
+    font-size: 14px;
+    line-height: 1.8;
+    text-align: left;
+    color: #555;
+    margin-bottom: 20px;
+    border-left: 4px solid var(--pink);
+}

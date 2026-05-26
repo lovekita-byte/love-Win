@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Lock ❤️</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Background -->
+    <div class="floating-hearts" id="floatingHearts"></div>
+
+    <!-- 1. Password Screen -->
+    <div class="screen active" id="lockContainer">
+        <div class="lock-icon">🔒</div>
+        <h2>My Love</h2>
+        <p class="hint">Enter our special date...</p>
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="checkPassword()">Unlock 💍</button>
+        <p id="errorMsg">Wrong password! Try again 😅</p>
+    </div>
+
+    <!-- 2. Quiz Screen -->
+    <div class="screen" id="quizContainer">
+        <div class="lock-icon">🧠</div>
+        <h2>Prove Your Love!</h2>
+        <p class="hint">Answer 8/10 to pass (80%)</p>
+        
+        <div class="stats">
+            <span>Question <b id="currentQ">1</b>/<b id="totalQ">10</b></span>
+            <span>Score: <b id="score">0</b></span>
+        </div>
+        
+        <div class="progress-line">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+        
+        <p id="questionText">Loading...</p>
+        <div id="optionsContainer"></div>
+    </div>
+
+    <!-- 3. Fail Screen -->
+    <div class="screen" id="failContainer">
+        <div class="lock-icon">😢</div>
+        <h2>Try Again!</h2>
+        <p class="score-text">You got <b id="finalScore">0</b>/10</p>
+        <p class="hint">Need 80% to unlock</p>
+        <button onclick="retryQuiz()">Try Again 🔄</button>
+        <button class="btn-gray" onclick="restartAll()">Start Over</button>
+    </div>
+
+    <!-- 4. Success Modal -->
+    <div class="modal" id="loveModal">
+        <div class="modal-box">
+            <div class="ring">💍</div>
+            <h3>Happy 1st Monthsary! 🎉</h3>
+            <div class="letter">
+                 Love,<br><br>
+              Di ko man sigurado na tayo na  nga hanggang dulo, Pero maipapangako ko sayo love na mananatili ako sayo at mamahalin pa kita ng lubusan at di ako titigil ipagpanata ka hanggang sa ipagkaloob ka na ng Ama na ikaw na ang aking  makakasama sa paglilingkod sa kanya.  <br><br>
+                I love you love ko so much! 😘💕
+            </div>
+            <button onclick="closeModal()">I Love You  ❤️</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
